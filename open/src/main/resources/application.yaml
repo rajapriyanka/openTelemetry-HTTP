@@ -3,9 +3,9 @@ spring:
     name: open
 
   datasource:
-    url: jdbc:postgresql://111.118.176.81:6000/testdb
-    username: appuser
-    password: appuser@123
+    url: 
+    username: 
+    password:
     driver-class-name: org.postgresql.Driver
 
   jpa:

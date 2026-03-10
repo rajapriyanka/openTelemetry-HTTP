@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: ot
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
+
+    metrics:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/metrics
+
+    logging:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/logs
+
+server:
+  port: 8081
+  shutdown: immediate

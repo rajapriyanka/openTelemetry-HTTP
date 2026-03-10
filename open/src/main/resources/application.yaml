@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: open
+
+  datasource:
+    url: jdbc:postgresql://111.118.176.81:6000/testdb
+    username: appuser
+    password: appuser@123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/traces
+
+    metrics:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/metrics
+
+    logging:
+      export:
+        otlp:
+          endpoint: http://localhost:4318/v1/logs
+
+
+logging:
+  level:
+    com.telemetry: INFO
+    org.springframework.boot.actuator.autoconfigure.opentelemetry: DEBUG
